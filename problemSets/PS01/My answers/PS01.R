@@ -42,41 +42,13 @@ AverageIQ_p
 
 # First, I create my relevant variables:
 
-State <- (Expenditure$STATE)
-ExpenditureOnShelters <- (Expenditure$Expenditure)
-PersonalIncome <- (Expenditure$PersonalIncome)
-FinanciallyInsecure <-  (Expenditure$FinanciallyInsecure)
-Urban <- (Expenditure$Urban)
-Region <- (Expenditure$Region)
-
-# Next, I create 3 scatter plots of Expenditure on shelters vs the
-# 3 independent variables:
-
-plot(ExpenditureOnShelters,PersonalIncome, main= "ScatterPlotYvsX1")
-abline(lm(PersonalIncome ~  ExpenditureOnShelters))
-
-plot(ExpenditureOnShelters,FinanciallyInsecure, main= "ScatterPlotYvsX2")
-abline(lm(FinanciallyInsecure  ~ ExpenditureOnShelters))
-
-plot(ExpenditureOnShelters,Urban, main= "ScatterPlotYvsX3")
-abline(lm(Urban  ~  ExpenditureOnShelters))
+pairs(~ Expenditure + PersonalIncome + FinanciallyInsecure + Urban, data = Expenditure)
 
 
 # Each of the three independent variables is positively associated with
 # Expenditure on Shelters/Housing Assistance.
 
-# I also create scatter plots of each of the 3 independent variables vs
-# each other:
-plot(FinanciallyInsecure,PersonalIncome, main= "ScatterPlotX1vsX2")
-abline(lm(PersonalIncome ~  FinanciallyInsecure))
-
-plot(Urban,FinanciallyInsecure, main= "ScatterPlotX2vsX3")
-abline(lm(FinanciallyInsecure  ~ Urban))
-
-plot(PersonalIncome,Urban, main= "ScatterPlotX3vsX1")
-abline(lm(Urban  ~  PersonalIncome))
-
-# Percentage income and urban population appear to have a strong positive
+# Personal income and urban population appear to have a strong positive
 # correlation.On the other hand, Financial Insecurity doesn't appear to have a
 # strong association with either Urban population or Personal Income.
 
@@ -112,4 +84,6 @@ abline(lm(West$Expenditure ~ West$PersonalIncome), col = "green")
 # It appears from the data that the positive association between Personal
 # Income and higher rates of expenditure on shelters and housing assistance
 # is most significant in the Northeast, and is least significant in the
-# Northcentral region, with the other two regions falling in between.
+# Northcentral region, with the other two regions falling in betweeen.
+# Northeast states also appear to have the highest Personal Incomes overall,
+# whilst southern states have the lowest incomes.

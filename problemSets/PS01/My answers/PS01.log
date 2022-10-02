@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.16)  28 SEP 2022 11:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.16)  2 OCT 2022 11:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -807,7 +807,7 @@ File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count336
 \l__pdf_internal_box=\box76
 )
-No file PS01.aux.
+(./PS01.aux)
 \openout1 = `PS01.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
@@ -828,7 +828,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
-(c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count337
 \scratchdimen=\dimen308
@@ -864,6 +864,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package xypdf Info: Line width: 0.47998pt on input line 67.
 Package hyperref Info: Link coloring OFF on input line 67.
+ (./PS01.out)
+(./PS01.out)
 \@outlinefile=\write7
 \openout7 = `PS01.out'.
 
@@ -883,7 +885,7 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 File: lstlang3.sty 2020/03/24 1.8d listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 91.
+nput line 94.
  (./PS01.R
 consecutive:
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 1
@@ -893,11 +895,37 @@ File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 10.
- [1
+) (./PS01.R
+consecutive:
+)
+Overfull \hbox (65.96992pt too wide) in paragraph at lines 101--101
+ []\OT1/cmtt/m/n/12 Next I calculate the margin of error using the standard dev
+iation and sample size.[] 
+ []
 
-{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+[1
 
+{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./PS01.R
+consecutive:
+) (./PS01.R
+consecutive:
+)
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+(./PS01.R
+consecutive:
+)
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 126--126
+[]\OT1/cmtt/m/n/12 Because p>0.05, we do not have evidence to reject the null-h
+ypothesis, that the[] 
+ []
+
+
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 126--126
+[]\OT1/cmtt/m/n/12 average student IQ in the school is the same or lower than t
+he average IQ score[] 
  []
 
 (./PS01.R
@@ -906,28 +934,62 @@ consecutive:
 consecutive:
 ) (./PS01.R
 consecutive:
-[3]) (./PS01.R
+)
+<pairs_plot.pdf, id=48, 461.725pt x 272.01625pt>
+File: pairs_plot.pdf Graphic file (type pdf)
+<use pairs_plot.pdf>
+Package pdftex.def Info: pairs_plot.pdf  used on input line 158.
+(pdftex.def)             Requested size: 352.31625pt x 207.56047pt.
+ [3 <./pairs_plot.pdf>] (./PS01.R
 consecutive:
-) (./PS01.R
+)
+<boxplot_regions.pdf, id=62, 461.725pt x 272.01625pt>
+File: boxplot_regions.pdf Graphic file (type pdf)
+<use boxplot_regions.pdf>
+Package pdftex.def Info: boxplot_regions.pdf  used on input line 181.
+(pdftex.def)             Requested size: 352.31625pt x 207.56047pt.
+ (./PS01.R
 consecutive:
-[4]) [5] (./PS01.aux)
+)
+<scatterplot_regions_coloured.pdf, id=63, 461.725pt x 272.01625pt>
+File: scatterplot_regions_coloured.pdf Graphic file (type pdf)
+<use scatterplot_regions_coloured.pdf>
+Package pdftex.def Info: scatterplot_regions_coloured.pdf  used on input line 1
+95.
+(pdftex.def)             Requested size: 352.31625pt x 207.56047pt.
+ [4 <./boxplot_regions.pdf>]
+Overfull \hbox (35.09491pt too wide) in paragraph at lines 200--200
+ []\OT1/cmtt/m/n/12 to better understand the data and see how states in differe
+nt regions differ,[] 
+ []
 
-Package rerunfilecheck Warning: File `PS01.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+(./PS01.R
+consecutive:
+)
+<scatterplot_with_lines.pdf, id=78, 461.725pt x 272.01625pt>
+File: scatterplot_with_lines.pdf Graphic file (type pdf)
+<use scatterplot_with_lines.pdf>
+Package pdftex.def Info: scatterplot_with_lines.pdf  used on input line 202.
+(pdftex.def)             Requested size: 352.31625pt x 207.56047pt.
 
-Package rerunfilecheck Info: Checksums for `PS01.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Overfull \hbox (10.3949pt too wide) in paragraph at lines 210--210
+ []\OT1/cmtt/m/n/12 Income and higher rates of expenditure on shelters and hous
+ing assistance[] 
+ []
+
+[5 <./scatterplot_regions_coloured.pdf> <./scatterplot_with_lines.pdf>]
+[6] (./PS01.aux)
+Package rerunfilecheck Info: File `PS01.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27128 strings out of 475075
- 474263 string characters out of 5783001
- 1272230 words of memory out of 5000000
- 47923 multiletter control sequences out of 15000+600000
+ 27109 strings out of 475075
+ 474387 string characters out of 5783001
+ 1073349 words of memory out of 5000000
+ 47951 multiletter control sequences out of 15000+600000
  480045 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,89p,3236b,2816s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,6n,89p,3236b,2213s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
 live/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-di
@@ -939,10 +1001,10 @@ pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/t
 exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/20
 22/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2022/texmf-d
 ist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on PS01.pdf (5 pages, 147658 bytes).
+Output written on PS01.pdf (6 pages, 199434 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 110 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 167 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

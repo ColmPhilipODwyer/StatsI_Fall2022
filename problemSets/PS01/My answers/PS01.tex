@@ -88,8 +88,24 @@
 	\begin{enumerate}
 		\item Find a 90\% confidence interval for the average student IQ in the school.\\
 
-\lstinputlisting[language=R, firstline=9, lastline=26]{PS01.R}  
-		
+\begin{verbatim}
+	First I calculate the average IQ for the sample
+\end{verbatim}
+\lstinputlisting[language=R, firstline=10, lastline=10]{PS01.R}  
+\begin{verbatim}
+Then I calculate the standard deviation in the sample
+\end{verbatim}		
+\lstinputlisting[language=R, firstline=13, lastline=13]{PS01.R}  
+\begin{verbatim}
+Next I calculate the margin of error using the standard deviation and sample size.
+\end{verbatim}	
+\lstinputlisting[language=R, firstline=18, lastline=18]{PS01.R}  
+\begin{verbatim}
+Finally, I calculate the upper and lower intervals
+\end{verbatim}	
+\lstinputlisting[language=R, firstline=21, lastline=25]{PS01.R}  
+
+
 		\item Next, the school counselor was curious  whether  the average student IQ in her school is higher than the average IQ score (100) among all the schools in the country.\\ 
 		
 
@@ -97,7 +113,18 @@
 		\noindent Using the same sample, conduct the appropriate hypothesis test with $\alpha=0.05$.
 	\end{enumerate}
 
-\lstinputlisting[language=R, firstline=28, lastline=39]{PS01.R}  	
+\begin{verbatim}
+I conduct a one sample t-test
+\end{verbatim}
+\lstinputlisting[language=R, firstline=29, lastline=30]{PS01.R}  
+\begin{verbatim}
+Because p>0.05, we do not have evidence to reject the null-hypothesis, that the
+average student IQ in the school is the same or lower than the average IQ score
+(100) among all the schools in the country.
+
+Alternatively, we can calculate this manually:
+\end{verbatim}
+\lstinputlisting[language=R, firstline=36, lastline=39]{PS01.R}
 
 	\newpage
 	
@@ -127,7 +154,17 @@
 		Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3}? What are the correlations among them (you just need to describe the graph and the relationships among them)?
 		\vspace{.5cm}
 		\item
-\lstinputlisting[language=R, firstline=43, lastline=81]{PS01.R} 
+\lstinputlisting[language=R, firstline=45, lastline=45]{PS01.R} 
+\includegraphics[width=.75\textwidth]{pairs_plot}
+\begin{verbatim}
+Each of the three independent variables is positively associated with
+Expenditure on Shelters/Housing Assistance. Personal income and
+urban population appear to have a strong positive correlation.
+On the other hand, Financial Insecurity doesn't appear to have a
+strong association with either Urban population or Personal Income.
+\end{verbatim}
+
+
 
 
 
@@ -135,13 +172,42 @@
 		Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on housing assistance?
 		\vspace{.5cm}
 		\item
-\lstinputlisting[language=R, firstline=85, lastline=91]{PS01.R} 
+\begin{verbatim}
+I produce a boxplot in order to compare the average expenditure on
+shelters/housing assistance across the 4 regions.
+\end{verbatim}
+
+\lstinputlisting[language=R, firstline=60, lastline=60]{PS01.R}
+\includegraphics[width=.75\textwidth]{boxplot_regions}
+\begin{verbatim}
+This box plot shows that expenditure on shelters/housing assistance is
+highest in the Western region of the US.
+\end{verbatim}
 
 		Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
 
-\lstinputlisting[language=R, firstline=94, lastline=116]{PS01.R} 
+\begin{verbatim}
+I produce a scatterplot of Expenditure on Shelters vs Personal Income,
+with different regions in different colours:
+\end{verbatim}
 
+\lstinputlisting[language=R, firstline=68, lastline=69]{PS01.R} 
+\includegraphics[width=.75\textwidth]{scatterplot_regions_coloured}
 
+\begin{verbatim}
+to better understand the data and see how states in different regions differ,
+I add 4 lines of best fit, one for each of the 4 regions:
+\end{verbatim}
+\lstinputlisting[language=R, firstline=74, lastline=82]{PS01.R} 
+\includegraphics[width=.75\textwidth]{scatterplot_with_lines}
+\begin{verbatim}
+It appears from the data that the positive association between Personal
+Income and higher rates of expenditure on shelters and housing assistance
+is most significant in the Northeast, and is least significant in the
+Northcentral region, with the other two regions falling in betweeen.
+Northeast states also appear to have the highest Personal Incomes
+overall, whilst southern states have the lowest incomes.
+\end{verbatim}
 	\end{itemize}
 	
 	
