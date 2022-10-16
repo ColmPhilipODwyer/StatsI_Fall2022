@@ -1,0 +1,276 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx,textcomp}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[reqno]{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{amssymb,enumerate}
+\usepackage[all]{xy}
+\usepackage{endnotes}
+\usepackage{lscape}
+\newtheorem{com}{Comment}
+\usepackage{float}
+\usepackage{hyperref}
+\newtheorem{lem} {Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{cor}{Corollary}
+\newtheorem{obs}{Observation}
+\usepackage[compact]{titlesec}
+\usepackage{dcolumn}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{multirow}
+\usepackage{xcolor}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\definecolor{light-gray}{gray}{0.65}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
+\newtheorem{hyp}{Hypothesis}
+
+\title{Problem Set 2}
+\date{Due: October 16, 2022}
+\author{Applied Stats/Quant Methods 1}
+
+\begin{document}
+	\maketitle
+	\section*{Instructions}
+\begin{itemize}
+	\item Please show your work! You may lose points by simply writing in the answer. If the problem requires you to execute commands in \texttt{R}, please include the code you used to get your answers. Please also include the \texttt{.R} file that contains your code. If you are not sure if work needs to be shown for a particular problem, please ask.
+	\item Your homework should be submitted electronically on GitHub.
+	\item This problem set is due before 23:59 on Sunday October 16, 2022. No late assignments will be accepted.
+	\item Total available points for this homework is 80.
+\end{itemize}
+
+	\vspace{.5cm}
+	\section*{Question 1 (40 points): Political Science}
+		\vspace{.25cm}
+	The following table was created using the data from a study run in a major Latin American city.
+
+As part of the experimental treatment in the study, one employee of the research team was chosen to make illegal left turns across traffic to draw the attention of the police officers on shift. Two employee drivers were upper class, two were lower class drivers, and the identity of the driver was randomly assigned per encounter. The researchers were interested in whether officers were more or less likely to solicit a bribe from
+drivers depending on their class (officers use phrases like, ``We can solve this the easy way'' to draw a bribe). The table below shows the resulting data.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l | c c c }
+		& Not Stopped & Bribe requested & Stopped/given warning \\
+		\\[-1.8ex] 
+		\hline \\[-1.8ex]
+		Upper class & 14 & 6 & 7 \\
+		Lower class & 7 & 7 & 1 \\
+		\hline
+	\end{tabular}
+\end{table}
+\begin{enumerate}
+	
+	\item [(a)]
+	Calculate the $\chi^2$ test statistic by hand/manually (even better if you can do "by hand" in \texttt{R}).\\
+\begin{verbatim}
+	First I calculate the Expected frequencies if the two variables were
+independent, using the formula ((row total * column total)/grand total)
+\end{verbatim}
+	
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l | c c c }
+		& Not Stopped & Bribe requested & Stopped/given warning \\
+		\\[-1.8ex] 
+		\hline \\[-1.8ex]
+		Upper class & 13.5 & 8.36 & 5.14  \\
+		Lower class & 7.5 & 4.64 & 2.86  \\
+		\hline
+	\end{tabular}
+\end{table}
+\begin{verbatim}
+	Next, I calculate the difference between the Actual and expected values
+for each, square the difference in each case, and divide the squared
+difference of each by the expected value:
+\end{verbatim}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l | c c c }
+		& Not Stopped & Bribe requested & Stopped/given warning \\
+		\\[-1.8ex] 
+		\hline \\[-1.8ex]
+		Upper class & 0.02 & 0.66 & 0.67  \\
+		Lower class & 0.03 & 1.2 & 1.21  \\
+		\hline
+	\end{tabular}
+\end{table}
+\begin{verbatim}
+	I sum the resulting figures = 3.79. This is the Chi-squared statistic.
+\end{verbatim}
+
+	\item [(b)]
+	Now calculate the p-value from the test statistic you just created (in \texttt{R}). What do you conclude if $\alpha = 0.1$?\\
+\begin{verbatim}
+	I calculate the degree of freedom:
+(df) = (rows - 1) x (columns - 1) = 2 x 1 = 2.
+Next, I calculate the p-value using the chi-squared statistic and the
+degrees of freedom
+\end{verbatim}
+\lstinputlisting[language=R, firstline=10, lastline=11]{PS02.R}
+\begin{verbatim}
+Taking our significance level as 0.1, because p > 0.1, we can conclude
+that we do not have sufficient evidence to reject the null hypothesis,
+that class and police officers' reaction to an illegal left turn are independent.
+\end{verbatim}
+  	
+	\item [(c)] Calculate the standardized residuals for each cell and put them in the table below.
+	\vspace{1cm}
+\begin{verbatim}
+The standardized residual for each value is found by dividing the
+difference between the actual and expected values for each by
+the square root of the expected values.
+\end{verbatim}	
+
+\begin{table}[h]
+		\centering
+		\begin{tabular}{l | c c c }
+			& Not Stopped & Bribe requested & Stopped/given warning \\
+			\\[-1.8ex] 
+			\hline \\[-1.8ex]
+			Upper class  & 0.14 & -0.82 & 0.82 \\
+			\\ Lower class & -0.18  & 1.09  & -1.10  \\
+			
+		\end{tabular}
+	\end{table}
+	\item [(d)] How might the standardized residuals help you interpret the results?
+\end{enumerate}
+\begin{verbatim}
+The standardized residuals suggest that, whilst there may not be a very
+significant difference between Upper and Lower class people in whether
+they are pulled over by the police or not, if they are stopped, there may
+be a more significant difference in how they are treated (i.e. whether a
+bribe is requested or whether they are given a warning)
+
+Repeating the chi-squared test, but excluding the cases where drivers
+were not pulled over confirms this to be the case.
+P < 0.1, and so we can say that we have sufficient evidence to reject the
+null-hypothesis, with a 90% confidence level that there is no association
+between drivers' class and their treatment by the police IF they are pulled over.
+\end{verbatim}
+
+\lstinputlisting[language=R, firstline=12, lastline=13]{PS02.R}
+
+
+\newpage
+\section*{Question 2 (40 points): Economics}
+Chattopadhyay and Duflo were interested in whether women promote different policies than men. Answering this question with observational data is pretty difficult due to potential confounding problems (e.g. the districts that choose female politicians are likely to systematically differ in other aspects too). Hence, they exploit a randomized policy experiment in India, where since the mid-1990s, $\frac{1}{3}$ of village council heads have been randomly reserved for women. A subset of the data from West Bengal can be found at the following link: \url{https://raw.githubusercontent.com/kosukeimai/qss/master/PREDICTION/women.csv}\\
+\noindent Each observation in the data set represents a village and there are two villages associated with one GP (i.e. a level of government is called "GP"). Figure~\ref{fig:women_desc} below shows the names and descriptions of the variables in the dataset. The authors hypothesize that female politicians are more likely to support policies female voters want. Researchers found that more women complain about the quality of drinking water than men. You need to estimate the effect of the reservation policy on the number of new or repaired drinking water facilities in the villages.
+\vspace{.5cm}
+\begin{figure}[h!]
+	\caption{\footnotesize{Names and description of variables from Chattopadhyay and Duflo (2004).}}
+	\vspace{.5cm}
+	\centering
+	\label{fig:women_desc}
+
+\end{figure}		
+\begin{enumerate}
+	\item [(a)] State a null and alternative (two-tailed) hypothesis. 
+\begin{verbatim}
+The Null Hypothesis (H0) is that a villlage having a female village council
+head is not associated with or is negatively associated with the number
+of new or repaired drinking water facilities in villages.
+
+The alternative hypothesis (HA) is that a village having a female village
+council head is positively associated with the number of new or repaired
+drinking water facilities in villages.
+\end{verbatim}	
+
+	\item [(b)] Run a bivariate regression to test this hypothesis in \texttt{R} (include your code!).
+\begin{verbatim}
+First, I control for the effect of "confounding problems" (i.e. districts
+choosing female leaders are likely to systematically differ in other respects
+too) by removing from the sample the villages where female village leaders
+were not randomly selected.
+Then I run my regression analysis.
+\end{verbatim}	
+\lstinputlisting[language=R, firstline=15, lastline=17]{PS02.R}
+\begin{verbatim}
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   14.813      2.429   6.099 3.24e-09 ***
+female         9.178      4.088   2.245   0.0255 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 34.18 on 304 degrees of freedom
+Multiple R-squared:  0.01631,	Adjusted R-squared:  0.01307 
+F-statistic: 5.039 on 1 and 304 DF,  p-value: 0.0255
+\end{verbatim}	
+	\item [(c)] Interpret the coefficient estimate for reservation policy.
+\begin{verbatim}
+
+The coefficient estimate for my regression suggests that having a female
+village council leader is associated with an increase in the number of new
+or repaired drinking water facilities, by 9.178 units, with a standard error
+of 4.088 units.
+This result is significant at the 0.05 level (p<0.05). Therefore,
+we would expect that if we repeated this analysis with a different sample,
+in more than 95% of cases having a female village leader would be
+associated with a larger number of new and repaired drinking water facilities.
+However, the adjusted R-squared figure is 0.013, meaning that
+only 1.3% of the overall variance in the number of new and repaired
+drinking water facilities is explained by the explanatory variable of female
+village council leaders.
+In comparison to this, including irrigation as an explanatory variable
+produces a model with an adjusted R-Squared of 0.1868, therefore
+explaining around 18.7% of the variation in the sample.
+\end{verbatim}	
+\lstinputlisting[language=R, firstline=18, lastline=19]{PS02.R}
+\begin{verbatim}
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   9.7224     2.2921   4.242 2.95e-05 ***
+female        9.7608     3.7118   2.630  0.00898 ** 
+irrigation    1.4933     0.1839   8.120 1.18e-14 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 31.02 on 303 degrees of freedom
+Multiple R-squared:  0.1921,	Adjusted R-squared:  0.1868 
+F-statistic: 36.03 on 2 and 303 DF,  p-value: 9.191e-15
+
+The effect of female village council leadership doesn't decrease or disappear when
+irrigation is included as an explanatory variable (in fact it increases slightly
+with p<0.01), suggesting that they may play some independent causal role,
+but are not as important an explanatory variable in explaining
+differential patterns of new and repaired drinking water facilities as
+are other "water-related" projects occurring such as irrigation projects.
+\end{verbatim}
+\end{enumerate}
+\end{document}
