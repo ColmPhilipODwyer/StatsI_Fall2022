@@ -98,6 +98,8 @@ help(Prestige)
 	
 	\item [(a)]
 	Create a new variable \texttt{professional} by recoding the variable \texttt{type} so that professionals are coded as $1$, and blue and white collar workers are coded as $0$ (Hint: \texttt{ifelse}).
+
+\lstinputlisting[language=R, firstline=5, lastline=6]{PS04.R}
 	
 	\vspace{6cm}
 	
@@ -105,29 +107,65 @@ help(Prestige)
 	\item [(b)]
 	Run a linear model with \texttt{prestige} as an outcome and \texttt{income}, \texttt{professional}, and the interaction of the two as predictors (Note: this is a continuous $\times$ dummy interaction.)
 	
+\lstinputlisting[language=R, firstline=7, lastline=8]{PS04.R}
+
 	\vspace{6cm}
 	\item [(c)]
 	Write the prediction equation based on the result.
+
+\begin{verbatim}
+	Y = 21.1422589 + 0.0031709(X1) + 37.7812800(X2) -0.0023257(X1*X2)
+Where Y = prestige, X1 = Income, X2 = Professional
+\end{verbatim}
 	
 \newpage
 	\item [(d)]
 	Interpret the coefficient for \texttt{income}.
+
+\begin{verbatim}
+For a non-professional, every one unit
+increase in income is associated with an
+increase in prestige by 0.0031709 units.
+
+For a professional, the association between income
+and prestige is less significant, every additional unit of income
+increases prestige by 0.0023257 less units than for other workers.
+\end{verbatim}
 	
 	\vspace{10cm}	
 	\item [(e)]
 	Interpret the coefficient for \texttt{professional}.
+
+\begin{verbatim}
+Controlling for income, being a professional is
+associated with a value for prestige 37.7812800 units
+higher than for a blue-collar or white-collar worker.
+\end{verbatim}
 	
+
 	\newpage
 	\item [(f)]
 	What is the effect of a \$1,000 increase in income on prestige score for professional occupations? In other words, we are interested in the marginal effect of income when the variable \texttt{professional} takes the value of $1$. Calculate the change in $\hat{y}$ associated with a \$1,000 increase in income based on your answer for (c).
 	
+\begin{verbatim}
+Increase in ŷ = +0.0031709(1000) -0.0023257(1000)(1)
+Increase in ŷ = +3.1709 -2.3257
+Increase in ŷ = +0.8452
+\end{verbatim}
+
 	\vspace{10cm}
 	
 	
 	\item [(g)]
 	What is the effect of changing one's occupations from non-professional to professional when her income is \$6,000? We are interested in the marginal effect of professional jobs when the variable \texttt{income} takes the value of $6,000$. Calculate the change in $\hat{y}$ based on your answer for (c).
 	
+\begin{verbatim}
+Change in ŷ = + 37.7812800  - 0.0023257(6000)
+Change in ŷ = + 37.7812800 - 13.9542
+Change in ŷ = +23.82708
+\end{verbatim}
 	
+
 \end{enumerate}
 
 \newpage
@@ -160,19 +198,78 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 
 \vspace{.5cm}
 \begin{enumerate}
-	\item [(a)] Use the results from a linear regression to determine whether having these yard signs in a precinct affects vote share (e.g., conduct a hypothesis test with $\alpha = .05$).
-	
+	\item [(a)] Use the results from a linear regression to determine whether having these yard signs in a precinct affects vote
+share (e.g., conduct a hypothesis test with $\alpha = .05$).
+
+\begin{verbatim}
+First I state my null and alternative hypotheses.
+
+H0: there is no association between precincts having lawn signs and vote share.
+i.e. the average vote share in precints with lawn signs = average vote share
+in precints without lawn signs.
+
+H1: there is some positive association between precints having lawn signs and
+vote share. i.e. average vote share in precints with lawn signs > average vote
+in precints without lawn signs.
+
+Next I conduct a t-test.
+Difference in means = 0.04200
+95\% confidence interval: 0.00146 to 0.08254
+t = 2.0777
+df = 53
+P-score = 0.04260
+Because P < 0.05, I can reject the null hypothesis, that lawn signs and vote share
+are not associated with one another.
+ 
+\end{verbatim}
+
 	\newpage		
 	\item [(b)]  Use the results to determine whether being
 	next to precincts with these yard signs affects vote
 	share (e.g., conduct a hypothesis test with $\alpha = .05$).
 	
+\begin{verbatim}
+First I state my null and alternative hypotheses.
+
+H0: there is no association between precincts being next to one with lawn signs
+and vote share. i.e. the average vote share in precints next to those with lawn
+signs = average vote share in precints not next to those with lawn signs.
+
+H1: there is some positive association between precints being next to those with
+lawn signs and vote share. i.e. average vote share in precints next to those with
+lawn signs > average vote in precints not next to those with lawn signs.
+
+Next I conduct a t-test.
+Difference in means = 0.04200
+95\% confidence interval: -0.00480 to 0.08880
+t = 1.7808
+df = 99
+P-score = 0.07801
+Because P > 0.05, I cannot reject the null hypothesis, that being next to a
+precint with lawn signs and vote share are not associated with one another.
+\end{verbatim}
+
 	\vspace{7cm}
 	\item [(c)] Interpret the coefficient for the constant term substantively.
 	\vspace{7cm}
 	
+\begin{verbatim}
+In precints which neither had lawn signs, nor were adjacent to precints
+with lawn signs, Ken Cuccinelli would be expected to get 30.2\% of the vote.
+\end{verbatim}
+
+
 	\item [(d)] Evaluate the model fit for this regression.  What does this	tell us about the importance of yard signs versus other factors that are not modeled?
-	
+
+\begin{verbatim}
+The model suggests that 0.94\% of variance in the dependent
+variable (vote share for Ken Cuccinelli) is explained by lawn signs
+in the precint or in a neighboring precint. This suggests that the
+ vast majority of variance is explained by other factors which are
+not included in the model.
+\end{verbatim}	
+
+
 \end{enumerate}  
 
 
